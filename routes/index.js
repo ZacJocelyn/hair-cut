@@ -40,6 +40,12 @@ router.get('/voted', function(req, res, next) {
     }
     let short = Math.floor((shortCount / totalVotes) * 100)
     let long = Math.floor((longCount / totalVotes) * 100)
+    if (short === NaN) {
+      short = 0;
+    }
+    if (long === NaN) {
+      long = 0;
+    }
     res.render('voted',
     {
       votes: votes,
